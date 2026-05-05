@@ -9,7 +9,9 @@ from __future__ import annotations
 from kbound.solvers.rce_lcg import DEFAULT_PRIME_POOL
 
 
-def solve_modadd_symbolic(examples: list[tuple], query, prime_pool: list[int] | None = None) -> dict:
+def solve_modadd_symbolic(
+    examples: list[tuple], query, prime_pool: list[int] | None = None
+) -> dict:
     """Try y = (x1 + x2) mod p for candidate primes."""
     if prime_pool is None:
         prime_pool = DEFAULT_PRIME_POOL

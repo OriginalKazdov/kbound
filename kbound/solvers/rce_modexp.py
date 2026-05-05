@@ -12,7 +12,11 @@ from kbound.solvers.rce_lcg import DEFAULT_PRIME_POOL
 
 
 def solve_modexp_symbolic(
-    examples: list[tuple], query, prime_pool: list[int] | None = None, top_k_p: int = 10, max_a: int = 30
+    examples: list[tuple],
+    query,
+    prime_pool: list[int] | None = None,
+    top_k_p: int = 10,
+    max_a: int = 30,
 ) -> dict:
     """Try y = a^x mod p over candidate (a, p) pairs."""
     if prime_pool is None:

@@ -20,15 +20,27 @@ Optional extras:
 
 ## Verify before pushing
 
+Quick checks (≈30 seconds total):
+
 ```bash
 ruff check kbound tests          # lint
 ruff format --check kbound tests # formatting (CI fails if not formatted)
 pytest                           # 94 tests, ~25 seconds
 ```
 
-CI on push runs the same three checks across Python 3.10 / 3.11 / 3.12 / 3.13
-plus a fresh-venv install smoke that exercises `import kbound` (without the
-`[server]` extras) and `kbound recover` against a bundled demo trace.
+Full local equivalent of the GitHub Actions CI matrix:
+
+```bash
+bash scripts/ci.sh
+```
+
+`scripts/ci.sh` runs ruff + pytest + `python -m build` + a fresh-venv install
+smoke that imports `kbound` (without `[server]` extras), runs `recover_rule`,
+and exercises the `kbound` console script against a bundled demo trace —
+the same checks `.github/workflows/ci.yml` runs remotely. Useful when
+GitHub Actions is unavailable for any reason.
+
+The remote CI on push runs the same checks across Python 3.10 / 3.11 / 3.12 / 3.13.
 
 ## Adding a new operator family
 
