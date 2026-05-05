@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "kbound"
-version = "0.1.0"
+version = "0.2.0"
 description = "Inductive rule recovery toolkit — give it K observations, get back the rule plus a sample-complexity certificate. Like SymPy, but for recovering the formula instead of manipulating a given one."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -51,6 +51,9 @@ server = [
     "python-multipart>=0.0.9",
 ]
 llm = ["anthropic>=0.40.0"]
+# `kbound-mcp` console script — stdio MCP server for AI agents
+# (Claude Desktop, Cursor, Cline, etc.) to call kbound as a tool.
+mcp = ["mcp>=1.0.0"]
 dev = [
     "pytest>=8.0.0",
     "httpx>=0.27.0",
@@ -64,6 +67,7 @@ docs = ["mkdocs>=1.6.0", "mkdocs-material>=9.5.0", "mkdocstrings[python]>=0.26.0
 
 [project.scripts]
 kbound = "kbound.cli:main"
+kbound-mcp = "kbound.mcp:main"
 
 [project.urls]
 Homepage = "https://github.com/OriginalKazdov/kbound"

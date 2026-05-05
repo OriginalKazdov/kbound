@@ -52,7 +52,7 @@ If nothing in the catalog matches, it returns `RecoveryResult(no_recovery, …)`
 
 ## Use cases
 
-- **Build deterministic copilots for AI agents**: drop kbound in as an MCP server; agents now answer K-shot induction questions correctly instead of hallucinating. (MCP adapter — in progress, not yet shipped.)
+- **Build deterministic copilots for AI agents**: drop `kbound-mcp` in as an [MCP server](https://modelcontextprotocol.io/); agents (Claude Desktop, Cursor, Cline, …) now answer K-shot induction questions correctly instead of hallucinating. See the [MCP integration](#mcp-integration-claude-desktop-cursor-cline) section below.
 - **Audit deployed AI agents**: recover the rule the agent is actually following from a trace log; compare against the vendor-declared specification (`kbound.check_compliance`); emit auditor-ready Markdown + CSV + remediation SLA.
 - **Cryptanalysis & security research**: recover LCG / glibc / Java / MT19937 / TGFSR-additive-feedback / 2-LCG-XOR-composition state from observed outputs, with a sample-complexity bound on the recovery.
 - **Behavioral diff between system versions**: `kbound.diff_traces(v1, v2)` surfaces silent rule changes between deployments.
@@ -117,6 +117,63 @@ from kbound import (
 ```
 
 The compliance check is the primitive that converts "no rule recovered" into a positive audit finding when you have a declared spec to test against.
+
+---
+
+## MCP integration (Claude Desktop, Cursor, Cline)
+
+`kbound` ships an MCP server that lets any MCP-aware AI agent call rule recovery as a tool. This closes the gap reported in Dovzak 2026: frontier LLMs hit ~0.02 in-context accuracy on algebraically-coupled K-shot induction; with the MCP server they delegate to a deterministic solver.
+
+```bash
+pip install kbound[mcp]
+```
+
+### Claude Desktop
+
+Add to `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS) or `%APPDATA%\Claude\claude_desktop_config.json` (Windows):
+
+```json
+{
+  "mcpServers": {
+    "kbound": {
+      "command": "kbound-mcp"
+    }
+  }
+}
+```
+
+Restart Claude Desktop. Five tools become available: `recover_rule_from_observations`, `predict_under_recovered_rule`, `list_supported_rule_families`, `verify_compliance_against_claimed_rule`, `classify_observation_geometry`.
+
+### Cursor / Cline
+
+Add to `~/.cursor/mcp.json` (Cursor) or your Cline config:
+
+```json
+{
+  "mcpServers": {
+    "kbound": {
+      "command": "kbound-mcp",
+      "args": []
+    }
+  }
+}
+```
+
+### Manual test
+
+You can run the server directly (it speaks JSON-RPC over stdio):
+
+```bash
+kbound-mcp
+# or:
+python -m kbound.mcp
+```
+
+For interactive testing, install the MCP Inspector:
+
+```bash
+npx @modelcontextprotocol/inspector kbound-mcp
+```
 
 ---
 

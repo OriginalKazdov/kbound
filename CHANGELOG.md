@@ -5,6 +5,24 @@ All notable changes to `kbound` are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.0] — MCP server
+
+### Added
+
+- **`kbound.mcp` module + `kbound-mcp` console script**: stdio MCP server that exposes inductive rule recovery as tools any MCP-aware AI agent (Claude Desktop, Claude Code, Cursor, Cline, etc.) can call. Five tools registered:
+  - `recover_rule_from_observations` — give K observations, get rule + certificate
+  - `predict_under_recovered_rule` — recover and predict held-out input in one shot
+  - `list_supported_rule_families` — catalog of operator families with K_lower_bound
+  - `verify_compliance_against_claimed_rule` — vendor-claim verification primitive
+  - `classify_observation_geometry` — cheap pre-check (spatial / algebraic / borderline)
+- New optional extra `kbound[mcp]` (depends on `mcp>=1.0.0`).
+- 18 pytest tests covering MCP tool registration, descriptions, and end-to-end behavior across arity-1, arity-2, and no-recovery paths.
+- README section with Claude Desktop / Cursor configuration snippets.
+
+### Why this matters
+
+Frontier LLMs hit ~0.02 accuracy on K-shot algebraic induction at K=16 in-context (Dovzak 2026). Wrapping kbound as an MCP tool gives those agents a deterministic side-channel: instead of hallucinating a rule from K observations, the agent calls `recover_rule_from_observations` and gets back the closed-form rule plus a sample-complexity certificate.
+
 ## [0.1.0] — initial release
 
 ### Added
