@@ -1,0 +1,20 @@
+# Kazdov Spec — vendor compliance counterexamples
+# generated_utc: 2026-05-04T19:18:08Z
+# fingerprint: ba4ab5e522ee6710
+# spec_source: Meta T&S operating manual
+# claimed_family: linear_residual
+# claimed_params: {"a": 3, "c": 5, "m": 11}
+# total_observations: 40
+# total_violations: 12
+# agreement_pct: 0.7000
+"row","input","observed_output","vendor_predicted_output","delta","fingerprint"
+"1","341","0","5","-5","ba4ab5e522ee6710"
+"2","451","0","5","-5","ba4ab5e522ee6710"
+"3","681","0","2","-2","ba4ab5e522ee6710"
+"4","638","0","5","-5","ba4ab5e522ee6710"
+"5","989","0","2","-2","ba4ab5e522ee6710"
+"6","120","0","2","-2","ba4ab5e522ee6710"
+"7","89","0","8","-8","ba4ab5e522ee6710"
+"8","363","0","5","-5","ba4ab5e522ee6710"
+"9","749","0","8","-8","ba4ab5e522ee6710"
+"10","286","0","5","-5","ba4ab5e522ee6710"

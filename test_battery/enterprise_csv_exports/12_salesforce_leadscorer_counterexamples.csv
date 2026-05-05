@@ -1,0 +1,15 @@
+# Kazdov Spec — vendor compliance counterexamples
+# generated_utc: 2026-05-04T19:18:08Z
+# fingerprint: a37f49936737c7b1
+# spec_source: Einstein scoring rules v4.1
+# claimed_family: polynomial_threshold
+# claimed_params: {"coeffs": [2, 9, 5], "m": 17}
+# total_observations: 40
+# total_violations: 5
+# agreement_pct: 0.8750
+"row","input","observed_output","vendor_predicted_output","delta","fingerprint"
+"1","9172","1","12","-11","a37f49936737c7b1"
+"2","47931","8","3","5","a37f49936737c7b1"
+"3","22055","14","15","-1","a37f49936737c7b1"
+"4","7149","9","12","-3","a37f49936737c7b1"
+"5","12792","1","3","-2","a37f49936737c7b1"

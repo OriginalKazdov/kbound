@@ -1,0 +1,58 @@
+{
+  "avg_passive_correlated": 4.0,
+  "avg_passive_random": 4.761904761904762,
+  "avg_active": 4.0,
+  "ratio_vs_correlated": 1.0,
+  "ratio_vs_random": 1.1904761904761905,
+  "results": [
+    {
+      "scenario": "lcg_mod7",
+      "passive_correlated_K": 4,
+      "passive_random_K_avg": 5.0,
+      "active_K_total": 4,
+      "gap_vs_correlated": 0
+    },
+    {
+      "scenario": "lcg_mod11",
+      "passive_correlated_K": 4,
+      "passive_random_K_avg": 4.0,
+      "active_K_total": 4,
+      "gap_vs_correlated": 0
+    },
+    {
+      "scenario": "lcg_mod13",
+      "passive_correlated_K": 4,
+      "passive_random_K_avg": 4.333333333333333,
+      "active_K_total": 4,
+      "gap_vs_correlated": 0
+    },
+    {
+      "scenario": "polycoef_mod11",
+      "passive_correlated_K": 4,
+      "passive_random_K_avg": 4.333333333333333,
+      "active_K_total": 4,
+      "gap_vs_correlated": 0
+    },
+    {
+      "scenario": "modmul_mod11",
+      "passive_correlated_K": 4,
+      "passive_random_K_avg": 4.333333333333333,
+      "active_K_total": 4,
+      "gap_vs_correlated": 0
+    },
+    {
+      "scenario": "modmul_mod13",
+      "passive_correlated_K": 4,
+      "passive_random_K_avg": 4.666666666666667,
+      "active_K_total": 4,
+      "gap_vs_correlated": 0
+    },
+    {
+      "scenario": "modexp_mod11",
+      "passive_correlated_K": 4,
+      "passive_random_K_avg": 6.666666666666667,
+      "active_K_total": 4,
+      "gap_vs_correlated": 0
+    }
+  ]
+}

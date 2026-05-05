@@ -1,0 +1,57 @@
+# venv
+.venv/
+venv/
+env/
+
+# python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# build / packaging
+dist/
+build/
+*.whl
+*.tar.gz
+
+# coverage
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+
+# experiment outputs
+results/
+*.log
+
+# OS / editors
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*~
+
+# secrets
+.env
+.env.local
+*.key
+*.pem
+
+# private working notes — never publish
+internal/
+
+# node / frontend
+node_modules/
+.next/
+.nuxt/
+.turbo/
+.parcel-cache/
+
+# Remotion / video pipeline caches
+.vo_cache/
+.remotion/
+out/

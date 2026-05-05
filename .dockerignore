@@ -1,0 +1,51 @@
+# Keep the image small + reproducible — exclude everything not strictly
+# needed at runtime. Only the engine source + pyproject.toml are copied.
+
+# VCS + IDE
+.git/
+.github/
+.gitignore
+.gitattributes
+.vscode/
+.idea/
+
+# Python ephemera
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Build / dist artifacts
+build/
+dist/
+
+# Tests, fixtures, experiments
+tests/
+experiments/
+results/
+
+# Frontend (deployed separately on Vercel)
+web/
+
+# Docs / marketing / research (not used at runtime)
+docs/
+marketing/
+_research/
+
+# Plans (private)
+PHASE_0_1.md
+PLAN.md
+COUNCIL_PLAN.md
+
+# Build configs not needed inside the image
+.vercelignore
+vercel.json
+Dockerfile
+.dockerignore

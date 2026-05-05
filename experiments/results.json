@@ -1,0 +1,191 @@
+[
+  {
+    "id": "etherroll_lcg",
+    "title": "Etherroll-style dice \u2014 predictable LCG mod 13",
+    "n": 8,
+    "expected_family": "lcg",
+    "got_family": "lcg",
+    "expected_answer": 9,
+    "got_answer": 9,
+    "answer_correct": true,
+    "family_correct": true,
+    "verified": true,
+    "geometry": "algebraic",
+    "true_params": {
+      "a": 7,
+      "c": 3,
+      "m": 13
+    },
+    "recovered_params": {
+      "a": 7,
+      "c": 3,
+      "m": 13
+    },
+    "params_match": true,
+    "solver": "RCE-LCG (symbolic consistency search)",
+    "elapsed_ms": 34.0,
+    "source": "Etherroll, 2017 (post-mortem published)"
+  },
+  {
+    "id": "nft_rarity_lcg",
+    "title": "NFT mint rarity \u2014 predictable LCG",
+    "n": 8,
+    "expected_family": "lcg",
+    "got_family": "lcg",
+    "expected_answer": 9,
+    "got_answer": 9,
+    "answer_correct": true,
+    "family_correct": true,
+    "verified": true,
+    "geometry": "algebraic",
+    "true_params": {
+      "a": 23,
+      "c": 11,
+      "m": 13
+    },
+    "recovered_params": {
+      "a": 10,
+      "c": 11,
+      "m": 13
+    },
+    "params_match": false,
+    "solver": "RCE-LCG (symbolic consistency search)",
+    "elapsed_ms": 38.6,
+    "source": "Meebits-class reroll bug (2021), pattern repeated in many drops"
+  },
+  {
+    "id": "shamir_poly_leak",
+    "title": "Polynomial coefficient leak (Shamir-class)",
+    "n": 8,
+    "expected_family": "polycoef",
+    "got_family": "polycoef",
+    "expected_answer": 12,
+    "got_answer": 12,
+    "answer_correct": true,
+    "family_correct": true,
+    "verified": true,
+    "geometry": "algebraic",
+    "true_params": {
+      "a": 4,
+      "b": 7,
+      "c": 5,
+      "p": 17
+    },
+    "recovered_params": {
+      "a": 4,
+      "b": 7,
+      "c": 5,
+      "p": 17
+    },
+    "params_match": true,
+    "solver": "RCE-Polycoef (3x3 mod-p Gaussian elimination)",
+    "elapsed_ms": 1995.4,
+    "source": "generic pattern in custom MPC / commit-reveal schemes"
+  },
+  {
+    "id": "rsa_primitive",
+    "title": "RSA primitive \u2014 modular exponentiation with weak modulus",
+    "n": 8,
+    "expected_family": "modexp",
+    "got_family": "modexp",
+    "expected_answer": 1,
+    "got_answer": 1,
+    "answer_correct": true,
+    "family_correct": true,
+    "verified": true,
+    "geometry": "algebraic",
+    "true_params": {
+      "a": 5,
+      "p": 13
+    },
+    "recovered_params": {
+      "a": 5,
+      "p": 13
+    },
+    "params_match": true,
+    "solver": "RCE-ModExp (modular exponentiation, RSA primitive)",
+    "elapsed_ms": 21.1,
+    "source": "generic RSA-precompile audit pattern"
+  },
+  {
+    "id": "shard_routing",
+    "title": "DB shard routing \u2014 recoverable from observed assignments",
+    "n": 8,
+    "expected_family": "lcg",
+    "got_family": "lcg",
+    "expected_answer": 7,
+    "got_answer": 7,
+    "answer_correct": true,
+    "family_correct": true,
+    "verified": true,
+    "geometry": "algebraic",
+    "true_params": {
+      "a": 5,
+      "c": 7,
+      "m": 11
+    },
+    "recovered_params": {
+      "a": 5,
+      "c": 7,
+      "m": 11
+    },
+    "params_match": true,
+    "solver": "RCE-LCG (symbolic consistency search)",
+    "elapsed_ms": 24.2,
+    "source": "production pattern (not a bug; useful for migration audit)"
+  },
+  {
+    "id": "roast_football",
+    "title": "Lottery winner \u2014 Roast Football class ($110K loss)",
+    "n": 8,
+    "expected_family": "lcg",
+    "got_family": "lcg",
+    "expected_answer": 4,
+    "got_answer": 4,
+    "answer_correct": true,
+    "family_correct": true,
+    "verified": true,
+    "geometry": "algebraic",
+    "true_params": {
+      "a": 11,
+      "c": 4,
+      "m": 7
+    },
+    "recovered_params": {
+      "a": 4,
+      "c": 4,
+      "m": 7
+    },
+    "params_match": false,
+    "solver": "RCE-LCG (symbolic consistency search)",
+    "elapsed_ms": 17.2,
+    "source": "Roast Football Protocol exploit, 2022-12 (~$110K)"
+  },
+  {
+    "id": "lfsr_recurrence",
+    "title": "Linear recurrence \u2014 LFSR / weak stream cipher",
+    "n": 8,
+    "expected_family": "recurrence_fib",
+    "got_family": "recurrence_linear",
+    "expected_answer": 5,
+    "got_answer": 5,
+    "answer_correct": true,
+    "family_correct": false,
+    "verified": true,
+    "geometry": "algebraic",
+    "true_params": {
+      "a": 3,
+      "b": 2,
+      "m": 11
+    },
+    "recovered_params": {
+      "a": 3,
+      "b": 2,
+      "m": 11
+    },
+    "params_match": true,
+    "solver": "RCE-Recurrence (recurrence_linear)",
+    "elapsed_ms": 1991.4,
+    "source": "LFSR audit pattern (academic; e.g. weak custom session token PRNGs)"
+  }
+]

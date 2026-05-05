@@ -1,0 +1,66 @@
+{
+  "v1": {
+    "label": "v1",
+    "trace_path": "marketing/killer_demo/support_router_trace.jsonl",
+    "n_observations": 40,
+    "operator_family": "linear_residual_policy",
+    "parameters": {
+      "a": 7,
+      "c": 2,
+      "m": 11
+    },
+    "decision_rule": "decision(x) = (7\u00b7x + 2) mod 11",
+    "k_used": 40,
+    "k_lower_bound": 4,
+    "margin": 10.0,
+    "consistency_score": 1.0,
+    "proof_status": "empirical"
+  },
+  "v2": {
+    "label": "v2",
+    "trace_path": "marketing/killer_demo/simulator_trace_v2.jsonl",
+    "n_observations": 40,
+    "operator_family": "linear_residual_policy",
+    "parameters": {
+      "a": 11,
+      "c": 5,
+      "m": 13
+    },
+    "decision_rule": "decision(x) = (11\u00b7x + 5) mod 13",
+    "k_used": 40,
+    "k_lower_bound": 4,
+    "margin": 10.0,
+    "consistency_score": 1.0,
+    "proof_status": "empirical"
+  },
+  "family_changed": false,
+  "family_v1": "linear_residual_policy",
+  "family_v2": "linear_residual_policy",
+  "parameter_deltas": [
+    {
+      "name": "a",
+      "v1_value": 7,
+      "v2_value": 11,
+      "changed": true
+    },
+    {
+      "name": "c",
+      "v1_value": 2,
+      "v2_value": 5,
+      "changed": true
+    },
+    {
+      "name": "m",
+      "v1_value": 11,
+      "v2_value": 13,
+      "changed": true
+    }
+  ],
+  "behavioral_divergence": {
+    "inputs_compared": 80,
+    "predictions_matching": 7,
+    "predictions_diverging": 73
+  },
+  "fingerprint": "6faa792bc4d141ef",
+  "notes": []
+}

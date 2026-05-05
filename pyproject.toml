@@ -1,0 +1,104 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kbound"
+version = "0.1.0"
+description = "Inductive rule recovery toolkit — give it K observations, get back the rule plus a sample-complexity certificate. Like SymPy, but for recovering the formula instead of manipulating a given one."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Juan Cruz Dovzak", email = "juandovzak@gmail.com" }]
+keywords = [
+    "induction",
+    "rule-recovery",
+    "program-synthesis",
+    "symbolic",
+    "neuro-symbolic",
+    "in-context-learning",
+    "k-shot",
+    "ai-agent",
+    "audit",
+    "mcp",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Mathematics",
+]
+dependencies = [
+    "pydantic>=2.0.0",
+    "z3-solver>=4.13.0",
+]
+
+[project.optional-dependencies]
+# Heavy ASGI stack — only needed by the FastAPI service (`kbound.api.main:app`).
+# 99% of library users (recover_rule + check_compliance + diff) never hit these.
+server = [
+    "fastapi>=0.115.0",
+    "uvicorn>=0.30.0",
+    "python-multipart>=0.0.9",
+]
+llm = ["anthropic>=0.40.0"]
+mcp = ["mcp>=1.0.0"]
+dev = [
+    "pytest>=8.0.0",
+    "httpx>=0.27.0",
+    "ruff>=0.6.0",
+    "mypy>=1.10.0",
+    # Tests don't import fastapi but the dev image runs the api smoke check.
+    "fastapi>=0.115.0",
+    "uvicorn>=0.30.0",
+]
+docs = ["mkdocs>=1.6.0", "mkdocs-material>=9.5.0", "mkdocstrings[python]>=0.26.0"]
+
+[project.scripts]
+kbound = "kbound.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/OriginalKazdov/kbound"
+Repository = "https://github.com/OriginalKazdov/kbound"
+Issues = "https://github.com/OriginalKazdov/kbound/issues"
+Documentation = "https://originalkazdov.github.io/kbound"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["kbound*"]
+exclude = ["tests*", "experiments*", "test_battery*", "internal*", "marketing*", "web*", "sdk*"]
+
+[tool.setuptools.package-data]
+kbound = ["data/demos/*.jsonl", "py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q --strict-markers --durations=10 -m 'not slow and not network'"
+markers = [
+    "slow: tests that take more than ~5s (MT19937 K=624, glibc TGFSR full battery)",
+    "network: tests that hit a real LLM API — skipped in CI by default",
+]
+filterwarnings = [
+    "error",
+    "ignore::DeprecationWarning:pydantic.*",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+extend-exclude = ["internal", "experiments", "test_battery", "tests/_legacy"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM"]
+ignore = ["E501", "B008", "SIM108"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*.py" = ["B011", "S101"]
+"kbound/__init__.py" = ["F401", "I001"]

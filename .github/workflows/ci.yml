@@ -1,0 +1,71 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install ruff
+      - run: ruff check kbound tests
+      - run: ruff format --check kbound tests
+
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.10", "3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+          cache: pip
+      - run: pip install -e ".[dev]"
+      - run: pytest --cov=kbound --cov-report=xml --cov-report=term
+      - if: matrix.python == '3.12'
+        uses: codecov/codecov-action@v5
+        with:
+          files: ./coverage.xml
+          fail_ci_if_error: false
+        continue-on-error: true
+
+  smoke-install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install .
+      - name: Library import + recover_rule smoke (no extras installed)
+        run: |
+          python -c "
+          import sys, kbound
+          assert kbound.__version__
+          assert 'fastapi' not in sys.modules, 'kbound import must not pull fastapi'
+          r = kbound.recover_rule([(i, (3*i + 7) % 17) for i in range(8)])
+          assert r.rule == 'decision(x) = (3·x + 7) mod 17', f'got: {r.rule}'
+          assert r.verified
+          print(f'kbound v{kbound.__version__} library smoke ok')
+          "
+      - name: Console script smoke (kbound --help, kbound recover demo)
+        run: |
+          kbound --help
+          kbound recover --logs kbound/data/demos/loan_approval_trace.jsonl --out /tmp/spec.md
+          test -s /tmp/spec.md
+          echo "console script smoke ok"

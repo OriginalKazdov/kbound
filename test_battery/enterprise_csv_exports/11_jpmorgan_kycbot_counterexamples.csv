@@ -1,0 +1,15 @@
+# Kazdov Spec — vendor compliance counterexamples
+# generated_utc: 2026-05-04T19:18:08Z
+# fingerprint: 8d4d812fbeafd267
+# spec_source: JPMorgan KYC documentation v3.2
+# claimed_family: linear_residual
+# claimed_params: {"a": 7, "c": 4, "m": 13}
+# total_observations: 40
+# total_violations: 5
+# agreement_pct: 0.8750
+"row","input","observed_output","vendor_predicted_output","delta","fingerprint"
+"1","952321","12","7","5","8d4d812fbeafd267"
+"2","185767","8","9","-1","8d4d812fbeafd267"
+"3","643420","12","3","9","8d4d812fbeafd267"
+"4","30254","1","12","-11","8d4d812fbeafd267"
+"5","984227","3","9","-6","8d4d812fbeafd267"

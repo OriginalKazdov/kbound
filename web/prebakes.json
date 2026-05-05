@@ -1,0 +1,741 @@
+{
+  "shard_routing": {
+    "answer": 5,
+    "verified": true,
+    "elapsed_ms": 21.278624888509512,
+    "stages": [
+      {
+        "step": 1,
+        "name": "Geometry Classification",
+        "status": "ok",
+        "summary": "algebraic (confidence 0.00)",
+        "elapsed_ms": 20.71720897220075,
+        "details": {
+          "verdict": "algebraic",
+          "confidence": null,
+          "features": {
+            "output_cardinality": 5,
+            "input_arity": 1,
+            "has_modular_wrap": 0,
+            "has_recurrence": 0,
+            "is_spatial_separable": 0
+          },
+          "per_model_accuracy": {
+            "haiku-4-5": 0.0,
+            "sonnet-4-6": 0.04,
+            "opus-4-7": 0.05,
+            "gpt-4o-mini": 0.04,
+            "llama-3-3": 0.03
+          }
+        }
+      },
+      {
+        "step": 2,
+        "name": "Family Detection",
+        "status": "ok",
+        "summary": "linear_residual",
+        "elapsed_ms": 0.5034580826759338,
+        "details": {
+          "family_id": "linear_residual",
+          "alternatives_tried": []
+        }
+      },
+      {
+        "step": 3,
+        "name": "Solver Invocation",
+        "status": "ok",
+        "summary": "Linear Residual solver (symbolic consistency search)",
+        "elapsed_ms": 0.057459110394120216,
+        "details": {
+          "solver_name": "Linear Residual solver (symbolic consistency search)",
+          "params_recovered": {
+            "a": 3,
+            "c": 2,
+            "m": 7
+          },
+          "full_details": {
+            "predicted_y": 5,
+            "m": 7,
+            "a": 3,
+            "c": 2,
+            "consistency_score": 1.0
+          }
+        }
+      },
+      {
+        "step": 4,
+        "name": "Verification & Audit",
+        "status": "ok",
+        "summary": "consistency 100%",
+        "elapsed_ms": null,
+        "details": {
+          "consistency_score": 1.0,
+          "passed": true
+        }
+      },
+      {
+        "step": 5,
+        "name": "Answer",
+        "status": "ok",
+        "summary": "answer = 5",
+        "elapsed_ms": null,
+        "details": {
+          "answer": 5,
+          "verified": true,
+          "rationale": "Identified linear residual rule family with parameters a=3, c=2, m=7. Symbolic search reached 100% consistency on the support set. the recovered rule crosses the algebraic boundary where frontier LLMs fail."
+        }
+      }
+    ],
+    "final": {
+      "answer": 5,
+      "verified": true,
+      "geometry": "algebraic",
+      "operator": {
+        "key": "linear_residual_policy",
+        "business_name": "Linear Residual Policy",
+        "family_label": "linear_residual_policy",
+        "description": "Decision computed as a linear combination of inputs reduced modulo a bound (small modulus, m <= ~few hundred).",
+        "typical_k_lower_bound": 4,
+        "validation_status": "validated"
+      },
+      "family_label": "Linear Residual Policy",
+      "solver_used": "Linear Residual solver (symbolic consistency search)",
+      "rationale": "Identified linear residual rule family with parameters a=3, c=2, m=7. Symbolic search reached 100% consistency on the support set. the recovered rule crosses the algebraic boundary where frontier LLMs fail."
+    },
+    "input": {
+      "format_detected": "arrow"
+    }
+  },
+  "bucket_assignment": {
+    "answer": 7,
+    "verified": true,
+    "elapsed_ms": 21.508042002096772,
+    "stages": [
+      {
+        "step": 1,
+        "name": "Geometry Classification",
+        "status": "ok",
+        "summary": "algebraic (confidence 0.00)",
+        "elapsed_ms": 20.878582959994674,
+        "details": {
+          "verdict": "algebraic",
+          "confidence": null,
+          "features": {
+            "output_cardinality": 8,
+            "input_arity": 1,
+            "has_modular_wrap": 0,
+            "has_recurrence": 0,
+            "is_spatial_separable": 0
+          },
+          "per_model_accuracy": {
+            "haiku-4-5": 0.0,
+            "sonnet-4-6": 0.04,
+            "opus-4-7": 0.05,
+            "gpt-4o-mini": 0.04,
+            "llama-3-3": 0.03
+          }
+        }
+      },
+      {
+        "step": 2,
+        "name": "Family Detection",
+        "status": "ok",
+        "summary": "linear_residual",
+        "elapsed_ms": 0.6024579051882029,
+        "details": {
+          "family_id": "linear_residual",
+          "alternatives_tried": []
+        }
+      },
+      {
+        "step": 3,
+        "name": "Solver Invocation",
+        "status": "ok",
+        "summary": "Linear Residual solver (symbolic consistency search)",
+        "elapsed_ms": 0.026624882593750954,
+        "details": {
+          "solver_name": "Linear Residual solver (symbolic consistency search)",
+          "params_recovered": {
+            "a": 3,
+            "c": 4,
+            "m": 11
+          },
+          "full_details": {
+            "predicted_y": 7,
+            "m": 11,
+            "a": 3,
+            "c": 4,
+            "consistency_score": 1.0
+          }
+        }
+      },
+      {
+        "step": 4,
+        "name": "Verification & Audit",
+        "status": "ok",
+        "summary": "consistency 100%",
+        "elapsed_ms": null,
+        "details": {
+          "consistency_score": 1.0,
+          "passed": true
+        }
+      },
+      {
+        "step": 5,
+        "name": "Answer",
+        "status": "ok",
+        "summary": "answer = 7",
+        "elapsed_ms": null,
+        "details": {
+          "answer": 7,
+          "verified": true,
+          "rationale": "Identified linear residual rule family with parameters a=3, c=4, m=11. Symbolic search reached 100% consistency on the support set. the recovered rule crosses the algebraic boundary where frontier LLMs fail."
+        }
+      }
+    ],
+    "final": {
+      "answer": 7,
+      "verified": true,
+      "geometry": "algebraic",
+      "operator": {
+        "key": "linear_residual_policy",
+        "business_name": "Linear Residual Policy",
+        "family_label": "linear_residual_policy",
+        "description": "Decision computed as a linear combination of inputs reduced modulo a bound (small modulus, m <= ~few hundred).",
+        "typical_k_lower_bound": 4,
+        "validation_status": "validated"
+      },
+      "family_label": "Linear Residual Policy",
+      "solver_used": "Linear Residual solver (symbolic consistency search)",
+      "rationale": "Identified linear residual rule family with parameters a=3, c=4, m=11. Symbolic search reached 100% consistency on the support set. the recovered rule crosses the algebraic boundary where frontier LLMs fail."
+    },
+    "input": {
+      "format_detected": "arrow"
+    }
+  },
+  "dedup_hash": {
+    "answer": 10,
+    "verified": true,
+    "elapsed_ms": 1962.6250830478966,
+    "stages": [
+      {
+        "step": 1,
+        "name": "Geometry Classification",
+        "status": "ok",
+        "summary": "algebraic (confidence 0.00)",
+        "elapsed_ms": 18.978416919708252,
+        "details": {
+          "verdict": "algebraic",
+          "confidence": null,
+          "features": {
+            "output_cardinality": 5,
+            "input_arity": 1,
+            "has_modular_wrap": 0,
+            "has_recurrence": 0,
+            "is_spatial_separable": 0
+          },
+          "per_model_accuracy": {
+            "haiku-4-5": 0.0,
+            "sonnet-4-6": 0.04,
+            "opus-4-7": 0.05,
+            "gpt-4o-mini": 0.04,
+            "llama-3-3": 0.03
+          }
+        }
+      },
+      {
+        "step": 2,
+        "name": "Family Detection",
+        "status": "ok",
+        "summary": "polynomial_threshold",
+        "elapsed_ms": 1943.6186659149826,
+        "details": {
+          "family_id": "polynomial_threshold",
+          "alternatives_tried": []
+        }
+      },
+      {
+        "step": 3,
+        "name": "Solver Invocation",
+        "status": "ok",
+        "summary": "Polynomial Threshold solver (3x3 mod-p Gaussian elimination)",
+        "elapsed_ms": 0.0274579506367445,
+        "details": {
+          "solver_name": "Polynomial Threshold solver (3x3 mod-p Gaussian elimination)",
+          "params_recovered": {
+            "a": 2,
+            "b": 3,
+            "c": 5,
+            "p": 11
+          },
+          "full_details": {
+            "predicted_y": 10,
+            "a": 2,
+            "b": 3,
+            "c": 5,
+            "p": 11,
+            "consistency_score": 1.0
+          }
+        }
+      },
+      {
+        "step": 4,
+        "name": "Verification & Audit",
+        "status": "ok",
+        "summary": "consistency 100%",
+        "elapsed_ms": null,
+        "details": {
+          "consistency_score": null,
+          "passed": true
+        }
+      },
+      {
+        "step": 5,
+        "name": "Answer",
+        "status": "ok",
+        "summary": "answer = 10",
+        "elapsed_ms": null,
+        "details": {
+          "answer": 10,
+          "verified": true,
+          "rationale": "Identified polynomial family f(x) = (2\u00b7x\u00b2 + 3\u00b7x + 5) mod 11. Linear-system mod p reached 100% consistency. Polynomial Threshold solver crosses the algebraic boundary where frontier LLMs fail."
+        }
+      }
+    ],
+    "final": {
+      "answer": 10,
+      "verified": true,
+      "geometry": "algebraic",
+      "operator": {
+        "key": "polynomial_threshold_rule",
+        "business_name": "Polynomial Threshold Rule",
+        "family_label": "polynomial_threshold_rule",
+        "description": "Decision computed as a polynomial of inputs reduced modulo a bound (small modulus, fast path).",
+        "typical_k_lower_bound": 4,
+        "validation_status": "validated"
+      },
+      "family_label": "Polynomial Threshold Rule",
+      "solver_used": "Polynomial Threshold solver (3x3 mod-p Gaussian elimination)",
+      "rationale": "Identified polynomial family f(x) = (2\u00b7x\u00b2 + 3\u00b7x + 5) mod 11. Linear-system mod p reached 100% consistency. Polynomial Threshold solver crosses the algebraic boundary where frontier LLMs fail."
+    },
+    "input": {
+      "format_detected": "arrow"
+    }
+  },
+  "modular_hash": {
+    "answer": 7,
+    "verified": true,
+    "elapsed_ms": 21.791708189994097,
+    "stages": [
+      {
+        "step": 1,
+        "name": "Geometry Classification",
+        "status": "ok",
+        "summary": "algebraic (confidence 0.00)",
+        "elapsed_ms": 21.158834220841527,
+        "details": {
+          "verdict": "algebraic",
+          "confidence": null,
+          "features": {
+            "output_cardinality": 8,
+            "input_arity": 1,
+            "has_modular_wrap": 0,
+            "has_recurrence": 0,
+            "is_spatial_separable": 0
+          },
+          "per_model_accuracy": {
+            "haiku-4-5": 0.0,
+            "sonnet-4-6": 0.04,
+            "opus-4-7": 0.05,
+            "gpt-4o-mini": 0.04,
+            "llama-3-3": 0.03
+          }
+        }
+      },
+      {
+        "step": 2,
+        "name": "Family Detection",
+        "status": "ok",
+        "summary": "linear_residual",
+        "elapsed_ms": 0.6065410561859608,
+        "details": {
+          "family_id": "linear_residual",
+          "alternatives_tried": []
+        }
+      },
+      {
+        "step": 3,
+        "name": "Solver Invocation",
+        "status": "ok",
+        "summary": "Linear Residual solver (symbolic consistency search)",
+        "elapsed_ms": 0.02591707743704319,
+        "details": {
+          "solver_name": "Linear Residual solver (symbolic consistency search)",
+          "params_recovered": {
+            "a": 3,
+            "c": 4,
+            "m": 11
+          },
+          "full_details": {
+            "predicted_y": 7,
+            "m": 11,
+            "a": 3,
+            "c": 4,
+            "consistency_score": 1.0
+          }
+        }
+      },
+      {
+        "step": 4,
+        "name": "Verification & Audit",
+        "status": "ok",
+        "summary": "consistency 100%",
+        "elapsed_ms": null,
+        "details": {
+          "consistency_score": 1.0,
+          "passed": true
+        }
+      },
+      {
+        "step": 5,
+        "name": "Answer",
+        "status": "ok",
+        "summary": "answer = 7",
+        "elapsed_ms": null,
+        "details": {
+          "answer": 7,
+          "verified": true,
+          "rationale": "Identified linear residual rule family with parameters a=3, c=4, m=11. Symbolic search reached 100% consistency on the support set. the recovered rule crosses the algebraic boundary where frontier LLMs fail."
+        }
+      }
+    ],
+    "final": {
+      "answer": 7,
+      "verified": true,
+      "geometry": "algebraic",
+      "operator": {
+        "key": "linear_residual_policy",
+        "business_name": "Linear Residual Policy",
+        "family_label": "linear_residual_policy",
+        "description": "Decision computed as a linear combination of inputs reduced modulo a bound (small modulus, m <= ~few hundred).",
+        "typical_k_lower_bound": 4,
+        "validation_status": "validated"
+      },
+      "family_label": "Linear Residual Policy",
+      "solver_used": "Linear Residual solver (symbolic consistency search)",
+      "rationale": "Identified linear residual rule family with parameters a=3, c=4, m=11. Symbolic search reached 100% consistency on the support set. the recovered rule crosses the algebraic boundary where frontier LLMs fail."
+    },
+    "input": {
+      "format_detected": "arrow"
+    }
+  },
+  "rsa_primitive": {
+    "answer": 9,
+    "verified": true,
+    "elapsed_ms": 19.872291944921017,
+    "stages": [
+      {
+        "step": 1,
+        "name": "Geometry Classification",
+        "status": "ok",
+        "summary": "algebraic (confidence 0.00)",
+        "elapsed_ms": 19.579708110541105,
+        "details": {
+          "verdict": "algebraic",
+          "confidence": null,
+          "features": {
+            "output_cardinality": 5,
+            "input_arity": 1,
+            "has_modular_wrap": 0,
+            "has_recurrence": 0,
+            "is_spatial_separable": 0
+          },
+          "per_model_accuracy": {
+            "haiku-4-5": 0.0,
+            "sonnet-4-6": 0.04,
+            "opus-4-7": 0.05,
+            "gpt-4o-mini": 0.04,
+            "llama-3-3": 0.03
+          }
+        }
+      },
+      {
+        "step": 2,
+        "name": "Family Detection",
+        "status": "ok",
+        "summary": "exponential_pattern",
+        "elapsed_ms": 0.25749998167157173,
+        "details": {
+          "family_id": "exponential_pattern",
+          "alternatives_tried": []
+        }
+      },
+      {
+        "step": 3,
+        "name": "Solver Invocation",
+        "status": "ok",
+        "summary": "Exponential Pattern solver (modular exponentiation, exponential decision rule)",
+        "elapsed_ms": 0.03483402542769909,
+        "details": {
+          "solver_name": "Exponential Pattern solver (modular exponentiation, exponential decision rule)",
+          "params_recovered": {
+            "a": 3,
+            "p": 11
+          },
+          "full_details": {
+            "predicted_y": 9,
+            "a": 3,
+            "p": 11,
+            "consistency_score": 1.0
+          }
+        }
+      },
+      {
+        "step": 4,
+        "name": "Verification & Audit",
+        "status": "ok",
+        "summary": "consistency 100%",
+        "elapsed_ms": null,
+        "details": {
+          "consistency_score": null,
+          "passed": true
+        }
+      },
+      {
+        "step": 5,
+        "name": "Answer",
+        "status": "ok",
+        "summary": "answer = 9",
+        "elapsed_ms": null,
+        "details": {
+          "answer": 9,
+          "verified": true,
+          "rationale": "Identified modular exponentiation: y = 3^x mod 11. Symbolic search reached 100% consistency. This is an exponential decision rule."
+        }
+      }
+    ],
+    "final": {
+      "answer": 9,
+      "verified": true,
+      "geometry": "algebraic",
+      "operator": {
+        "key": "exponential_pattern_rule",
+        "business_name": "Exponential Pattern Rule",
+        "family_label": "exponential_pattern_rule",
+        "description": "Decision computed via exponentiation modulo a recovered small base/modulus pair.",
+        "typical_k_lower_bound": 4,
+        "validation_status": "validated"
+      },
+      "family_label": "Exponential Pattern Rule",
+      "solver_used": "Exponential Pattern solver (modular exponentiation, exponential decision rule)",
+      "rationale": "Identified modular exponentiation: y = 3^x mod 11. Symbolic search reached 100% consistency. This is an exponential decision rule."
+    },
+    "input": {
+      "format_detected": "arrow"
+    }
+  },
+  "boolean_gate": {
+    "answer": 0,
+    "verified": true,
+    "elapsed_ms": 0.07629208266735077,
+    "stages": [
+      {
+        "step": 1,
+        "name": "Geometry Classification",
+        "status": "ok",
+        "summary": "spatial (confidence 0.00)",
+        "elapsed_ms": 0.048625050112605095,
+        "details": {
+          "verdict": "spatial",
+          "confidence": null,
+          "features": {
+            "output_cardinality": 2,
+            "input_arity": 2,
+            "has_modular_wrap": 0,
+            "has_recurrence": 0,
+            "is_spatial_separable": 1
+          },
+          "per_model_accuracy": {
+            "haiku-4-5": 0.84,
+            "sonnet-4-6": 1.0,
+            "opus-4-7": 0.96,
+            "gpt-4o-mini": 0.8,
+            "llama-3-3": 0.78
+          }
+        }
+      },
+      {
+        "step": 2,
+        "name": "Family Detection",
+        "status": "skipped",
+        "summary": "skipped (spatial path)",
+        "elapsed_ms": 0.00016693957149982452,
+        "details": {
+          "family_id": null,
+          "alternatives_tried": []
+        }
+      },
+      {
+        "step": 3,
+        "name": "Solver Invocation",
+        "status": "ok",
+        "summary": "Binary Decision Gate solver (XOR)",
+        "elapsed_ms": 0.027125002816319466,
+        "details": {
+          "solver_name": "Binary Decision Gate solver (XOR)",
+          "params_recovered": {
+            "operator": "XOR",
+            "truth_table": [
+              0,
+              1,
+              1,
+              0
+            ]
+          },
+          "full_details": {
+            "predicted_y": 0,
+            "operator": "XOR",
+            "truth_table": [
+              0,
+              1,
+              1,
+              0
+            ],
+            "consistency_score": 1.0
+          }
+        }
+      },
+      {
+        "step": 4,
+        "name": "Verification & Audit",
+        "status": "ok",
+        "summary": "consistency 100%",
+        "elapsed_ms": null,
+        "details": {
+          "consistency_score": null,
+          "passed": true
+        }
+      },
+      {
+        "step": 5,
+        "name": "Answer",
+        "status": "ok",
+        "summary": "answer = 0",
+        "elapsed_ms": null,
+        "details": {
+          "answer": 0,
+          "verified": true,
+          "rationale": "Boolean operator detected: XOR. Truth table [0, 1, 1, 0]. Symbolic exact solution preferred over LLM route."
+        }
+      }
+    ],
+    "final": {
+      "answer": 0,
+      "verified": true,
+      "geometry": "spatial",
+      "operator": null,
+      "family_label": null,
+      "solver_used": "Binary Decision Gate solver (XOR)",
+      "rationale": "Boolean operator detected: XOR. Truth table [0, 1, 1, 0]. Symbolic exact solution preferred over LLM route."
+    },
+    "input": {
+      "format_detected": "arrow"
+    }
+  },
+  "linear_threshold": {
+    "answer": 1,
+    "verified": false,
+    "elapsed_ms": 1156.872458057478,
+    "stages": [
+      {
+        "step": 1,
+        "name": "Geometry Classification",
+        "status": "ok",
+        "summary": "spatial (confidence 0.00)",
+        "elapsed_ms": 0.8049590978771448,
+        "details": {
+          "verdict": "spatial",
+          "confidence": null,
+          "features": {
+            "output_cardinality": 2,
+            "input_arity": 1,
+            "has_modular_wrap": 1,
+            "has_recurrence": 0,
+            "is_spatial_separable": 1
+          },
+          "per_model_accuracy": {
+            "haiku-4-5": 0.84,
+            "sonnet-4-6": 1.0,
+            "opus-4-7": 0.96,
+            "gpt-4o-mini": 0.8,
+            "llama-3-3": 0.78
+          }
+        }
+      },
+      {
+        "step": 2,
+        "name": "Family Detection",
+        "status": "skipped",
+        "summary": "skipped (spatial path)",
+        "elapsed_ms": 0.00016600824892520905,
+        "details": {
+          "family_id": null,
+          "alternatives_tried": []
+        }
+      },
+      {
+        "step": 3,
+        "name": "Solver Invocation",
+        "status": "ok",
+        "summary": "LLM fallback",
+        "elapsed_ms": 1156.0645829886198,
+        "details": {
+          "solver_name": "LLM fallback",
+          "params_recovered": null,
+          "full_details": {
+            "answer": 1,
+            "model_used": "claude-haiku-4-5",
+            "raw_output": "1",
+            "inferred_confidence": 0.85,
+            "tokens_used": 159
+          }
+        }
+      },
+      {
+        "step": 4,
+        "name": "Verification & Audit",
+        "status": "failed",
+        "summary": "consistency 85%",
+        "elapsed_ms": null,
+        "details": {
+          "consistency_score": null,
+          "passed": false
+        }
+      },
+      {
+        "step": 5,
+        "name": "Answer",
+        "status": "ok",
+        "summary": "answer = 1",
+        "elapsed_ms": null,
+        "details": {
+          "answer": 1,
+          "verified": false,
+          "rationale": "Spatial-separable rule. Routed to claude-haiku-4-5 (cheapest model above 80% threshold per paper #1 calibration). LLM raw output: 1..."
+        }
+      }
+    ],
+    "final": {
+      "answer": 1,
+      "verified": false,
+      "geometry": "spatial",
+      "operator": null,
+      "family_label": null,
+      "solver_used": "LLM fallback",
+      "rationale": "Spatial-separable rule. Routed to claude-haiku-4-5 (cheapest model above 80% threshold per paper #1 calibration). LLM raw output: 1..."
+    },
+    "input": {
+      "format_detected": "arrow"
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "avg_passive": 4.142857142857143,
+  "avg_active": 4.0,
+  "ratio": 1.0357142857142858,
+  "results": [
+    {
+      "scenario": "lcg_mod7",
+      "passive_K": 5,
+      "active_K_initial": 2,
+      "active_K_queries": 2,
+      "active_K_total": 4,
+      "gap": 1,
+      "passive_ms": 47.3,
+      "active_ms": 17.3
+    },
+    {
+      "scenario": "lcg_mod11",
+      "passive_K": 4,
+      "active_K_initial": 2,
+      "active_K_queries": 2,
+      "active_K_total": 4,
+      "gap": 0,
+      "passive_ms": 36.0,
+      "active_ms": 16.2
+    },
+    {
+      "scenario": "lcg_mod13",
+      "passive_K": 4,
+      "active_K_initial": 2,
+      "active_K_queries": 2,
+      "active_K_total": 4,
+      "gap": 0,
+      "passive_ms": 32.9,
+      "active_ms": 16.8
+    },
+    {
+      "scenario": "polycoef_mod11",
+      "passive_K": 4,
+      "active_K_initial": 2,
+      "active_K_queries": 2,
+      "active_K_total": 4,
+      "gap": 0,
+      "passive_ms": 34.3,
+      "active_ms": 16.0
+    },
+    {
+      "scenario": "modmul_mod11",
+      "passive_K": 4,
+      "active_K_initial": 2,
+      "active_K_queries": 2,
+      "active_K_total": 4,
+      "gap": 0,
+      "passive_ms": 33.1,
+      "active_ms": 18.0
+    },
+    {
+      "scenario": "modmul_mod13",
+      "passive_K": 4,
+      "active_K_initial": 2,
+      "active_K_queries": 2,
+      "active_K_total": 4,
+      "gap": 0,
+      "passive_ms": 32.9,
+      "active_ms": 15.8
+    },
+    {
+      "scenario": "modexp_mod11",
+      "passive_K": 4,
+      "active_K_initial": 2,
+      "active_K_queries": 2,
+      "active_K_total": 4,
+      "gap": 0,
+      "passive_ms": 34.4,
+      "active_ms": 16.6
+    }
+  ]
+}

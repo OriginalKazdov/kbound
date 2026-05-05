@@ -1,0 +1,35 @@
+# Vercel deploys ONLY the static site in web/.
+# Everything else (Python engine, tests, research, marketing, internal docs)
+# is excluded so Vercel cannot misdetect this as a FastAPI / Python project.
+
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.venv/
+.pytest_cache/
+
+# Python package
+kbound/
+
+# Working dirs
+tests/
+experiments/
+test_battery/
+results/
+docs/
+marketing/
+sdk/
+internal/
+_research/
+
+# Build artifacts
+build/
+dist/
+
+# Top-level Python config
+pyproject.toml
+requirements.txt
+QUICKSTART.md
+README.md
+LICENSE

@@ -1,0 +1,122 @@
+[
+  {
+    "agent_id": "agent_01_lcg_easy",
+    "label": "Customer router (LCG)",
+    "complexity": "easy",
+    "expected": "recover (7\u00b7x + 2) mod 11 with K=40, consistency 1.0",
+    "recovery_status": "RECOVERED",
+    "recovery_summary": "family=linear_residual_policy, params={'a': 7, 'c': 2, 'm': 11}, consistency=1.0000",
+    "recovery_ms": 87,
+    "compliance": "agreement=100.0% (40/40), buckets=low:100% mid:100% high:100%"
+  },
+  {
+    "agent_id": "agent_02_polynomial",
+    "label": "Risk scorer (polynomial)",
+    "complexity": "medium",
+    "expected": "recover polynomial threshold rule with coeffs [1, 5, 3] mod 13",
+    "recovery_status": "RECOVERED",
+    "recovery_summary": "family=polynomial_threshold_rule, params={'a': 3, 'b': 5, 'c': 1, 'p': 13}, consistency=1.0000",
+    "recovery_ms": 7760,
+    "compliance": null
+  },
+  {
+    "agent_id": "agent_03_recurrence",
+    "label": "State machine (linear recurrence)",
+    "complexity": "medium",
+    "expected": "recover linear recurrence order-2",
+    "recovery_status": "NO_RECOVERY",
+    "recovery_summary": "engine emitted no_recovery (status: no_recovery)",
+    "recovery_ms": 11558,
+    "compliance": null
+  },
+  {
+    "agent_id": "agent_04_modexp",
+    "label": "Cryptographic primitive (mod exp)",
+    "complexity": "medium",
+    "expected": "recover exponential pattern rule",
+    "recovery_status": "RECOVERED",
+    "recovery_summary": "family=exponential_pattern_rule, params={'a': 2, 'p': 13}, consistency=1.0000",
+    "recovery_ms": 84,
+    "compliance": null
+  },
+  {
+    "agent_id": "agent_05_composed_categorical",
+    "label": "Loan approval (composed: LCG \u2192 categorical bucket)",
+    "complexity": "hard",
+    "expected": "probably no_recovery \u2014 composition + categorical output is outside the 1D-int catalog",
+    "recovery_status": "NO_RECOVERY",
+    "recovery_summary": "engine emitted no_recovery (status: no_recovery)",
+    "recovery_ms": 8051,
+    "compliance": null
+  },
+  {
+    "agent_id": "agent_06_multi_feature_packed",
+    "label": "Credit decision (multi-feature)",
+    "complexity": "hard",
+    "expected": "possibly recovers as linear residual with a bigger modulus (m=100), but the underlying multi-feature semantics are lost",
+    "recovery_status": "NO_RECOVERY",
+    "recovery_summary": "engine emitted no_recovery (status: no_recovery)",
+    "recovery_ms": 7143,
+    "compliance": null
+  },
+  {
+    "agent_id": "agent_07_pure_threshold",
+    "label": "Eligibility gate (threshold)",
+    "complexity": "hard",
+    "expected": "no_recovery \u2014 threshold rules are not in the engine's modular/polynomial/recurrence catalog",
+    "recovery_status": "NO_RECOVERY",
+    "recovery_summary": "engine emitted no_recovery (status: no_recovery)",
+    "recovery_ms": 1517,
+    "compliance": null
+  },
+  {
+    "agent_id": "agent_08_noisy_lcg",
+    "label": "Stochastic agent (LCG + 30% noise)",
+    "complexity": "hard",
+    "expected": "no_recovery (consistency too low) \u2014 but compliance check against the claimed (7x+2) mod 11 should report ~70% agreement",
+    "recovery_status": "NO_RECOVERY",
+    "recovery_summary": "engine emitted no_recovery (status: no_recovery)",
+    "recovery_ms": 12179,
+    "compliance": "agreement=72.5% (29/40), buckets=low:76% mid:78% high:64%"
+  },
+  {
+    "agent_id": "agent_09_drift_v1",
+    "label": "Drift v1 (baseline)",
+    "complexity": "easy",
+    "expected": "recover (7\u00b7x + 2) mod 11 \u2014 baseline for diff against agent_10",
+    "recovery_status": "RECOVERED",
+    "recovery_summary": "family=linear_residual_policy, params={'a': 7, 'c': 2, 'm': 11}, consistency=1.0000",
+    "recovery_ms": 89,
+    "compliance": null
+  },
+  {
+    "agent_id": "agent_10_drift_v2",
+    "label": "Drift v2 (post-vendor-update)",
+    "complexity": "easy",
+    "expected": "recover (11\u00b7x + 5) mod 13. Diff against agent_09 should detect parameter drift and high behavioral divergence.",
+    "recovery_status": "RECOVERED",
+    "recovery_summary": "family=linear_residual_policy, params={'a': 11, 'c': 5, 'm': 13}, consistency=1.0000",
+    "recovery_ms": 6,
+    "compliance": null
+  },
+  {
+    "agent_id": "agent_11_meta_escalation",
+    "label": "Meta-escalation (multi-criteria)",
+    "complexity": "out-of-catalog",
+    "expected": "no_recovery \u2014 multi-criteria branching is not in the engine's catalog",
+    "recovery_status": "NO_RECOVERY",
+    "recovery_summary": "engine emitted no_recovery (status: no_recovery)",
+    "recovery_ms": 13459,
+    "compliance": null
+  },
+  {
+    "agent_id": "DIFF_09_vs_10",
+    "label": "Drift detection: agent_09 vs agent_10",
+    "complexity": "diff",
+    "expected": "behavioral divergence detected",
+    "recovery_status": "OK",
+    "recovery_summary": "v1=decision(x) = (7\u00b7x + 2) mod 11; v2=decision(x) = (11\u00b7x + 5) mod 13; div=96.2%",
+    "recovery_ms": 0,
+    "compliance": null
+  }
+]

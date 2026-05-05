@@ -1,0 +1,463 @@
+[
+  {
+    "id": "01_acmebank_loanfasttrack",
+    "company": "AcmeBank",
+    "product": "LoanFastTrack",
+    "vertical": "fintech / consumer credit",
+    "flavor": "A",
+    "expected_outcome": "RECOVERED",
+    "recovery": {
+      "status": "RECOVERED",
+      "family": "linear_residual_policy",
+      "params": {
+        "a": 13,
+        "c": 7,
+        "m": 17
+      },
+      "decision_rule": "decision(x) = (13\u00b7x + 7) mod 17",
+      "consistency": 1.0,
+      "k_used": 40,
+      "k_lower_bound": 4,
+      "margin": 10.0,
+      "elapsed_ms": 94
+    }
+  },
+  {
+    "id": "02_allstate_claimstriage",
+    "company": "Allstate",
+    "product": "ClaimsTriagePro",
+    "vertical": "insurance / auto claims",
+    "flavor": "A",
+    "expected_outcome": "RECOVERED",
+    "recovery": {
+      "status": "RECOVERED",
+      "family": "polynomial_threshold_rule",
+      "params": {
+        "a": 5,
+        "b": 7,
+        "c": 3,
+        "p": 19
+      },
+      "decision_rule": "decision(x) = (5\u00b7x\u00b2 + 7\u00b7x + 3) mod 19",
+      "consistency": 1.0,
+      "k_used": 40,
+      "k_lower_bound": 4,
+      "margin": 10.0,
+      "elapsed_ms": 7719
+    }
+  },
+  {
+    "id": "03_stripe_fraudshield",
+    "company": "Stripe",
+    "product": "FraudShield Quadratic Tier",
+    "vertical": "payments / fraud",
+    "flavor": "A",
+    "expected_outcome": "RECOVERED",
+    "recovery": {
+      "status": "RECOVERED",
+      "family": "polynomial_threshold_rule",
+      "params": {
+        "a": 7,
+        "b": 11,
+        "c": 1,
+        "p": 23
+      },
+      "decision_rule": "decision(x) = (7\u00b7x\u00b2 + 11\u00b7x + 1) mod 23",
+      "consistency": 1.0,
+      "k_used": 40,
+      "k_lower_bound": 4,
+      "margin": 10.0,
+      "elapsed_ms": 7610
+    }
+  },
+  {
+    "id": "04_verizon_supportrouter",
+    "company": "Verizon",
+    "product": "SupportTicketRouter v3.4",
+    "vertical": "telco / customer support",
+    "flavor": "A",
+    "expected_outcome": "RECOVERED",
+    "recovery": {
+      "status": "RECOVERED",
+      "family": "linear_residual_policy",
+      "params": {
+        "a": 5,
+        "c": 4,
+        "m": 13
+      },
+      "decision_rule": "decision(x) = (5\u00b7x + 4) mod 13",
+      "consistency": 1.0,
+      "k_used": 40,
+      "k_lower_bound": 4,
+      "margin": 10.0,
+      "elapsed_ms": 8
+    }
+  },
+  {
+    "id": "05_twilio_messageprio",
+    "company": "Twilio",
+    "product": "MessageQueuePriority",
+    "vertical": "comms / SMS infra",
+    "flavor": "A",
+    "expected_outcome": "RECOVERED",
+    "recovery": {
+      "status": "RECOVERED",
+      "family": "exponential_pattern_rule",
+      "params": {
+        "a": 3,
+        "p": 19
+      },
+      "decision_rule": "decision(x) = 3^x mod 19",
+      "consistency": 1.0,
+      "k_used": 40,
+      "k_lower_bound": 4,
+      "margin": 10.0,
+      "elapsed_ms": 86
+    }
+  },
+  {
+    "id": "06_paypal_disputebot",
+    "company": "PayPal",
+    "product": "DisputeResolutionBot v2",
+    "vertical": "payments / dispute",
+    "flavor": "B",
+    "expected_outcome": "NO_RECOVERY",
+    "recovery": {
+      "status": "NO_RECOVERY",
+      "elapsed_ms": 1126
+    }
+  },
+  {
+    "id": "07_cigna_priorauth",
+    "company": "Cigna",
+    "product": "PriorAuthAgent",
+    "vertical": "healthcare / payer",
+    "flavor": "B",
+    "expected_outcome": "NO_RECOVERY",
+    "recovery": {
+      "status": "NO_RECOVERY",
+      "elapsed_ms": 1147
+    }
+  },
+  {
+    "id": "08_workday_candidatescreen",
+    "company": "Workday",
+    "product": "CandidateScreen ATS",
+    "vertical": "HR / recruiting",
+    "flavor": "B",
+    "expected_outcome": "NO_RECOVERY",
+    "recovery": {
+      "status": "NO_RECOVERY",
+      "elapsed_ms": 1023
+    }
+  },
+  {
+    "id": "09_amazon_pricingbot",
+    "company": "Amazon Retail",
+    "product": "DynamicPricingBot",
+    "vertical": "e-commerce / pricing",
+    "flavor": "B",
+    "expected_outcome": "NO_RECOVERY",
+    "recovery": {
+      "status": "NO_RECOVERY",
+      "elapsed_ms": 169
+    }
+  },
+  {
+    "id": "10_capitalone_creditlimit",
+    "company": "Capital One",
+    "product": "CreditLimitAgent v7",
+    "vertical": "fintech / consumer credit",
+    "flavor": "C",
+    "expected_outcome": "NO_RECOVERY",
+    "recovery": {
+      "status": "NO_RECOVERY",
+      "elapsed_ms": 12293
+    },
+    "compliance": {
+      "claimed_family": "linear_residual",
+      "claimed_params": {
+        "a": 11,
+        "c": 3,
+        "m": 11
+      },
+      "agreement_pct": 0.725,
+      "n_agree": 29,
+      "n_violations": 11,
+      "n_total": 40,
+      "compliant_at_95": false,
+      "by_input_bucket": {
+        "low": 0.75,
+        "mid": 0.8125,
+        "high": 0.5833333333333334
+      },
+      "first_counterexamples": [
+        {
+          "x": 641000,
+          "y_observed": 1,
+          "y_predicted": 3
+        },
+        {
+          "x": 266790,
+          "y_observed": 7,
+          "y_predicted": 3
+        },
+        {
+          "x": 907848,
+          "y_observed": 9,
+          "y_predicted": 3
+        },
+        {
+          "x": 863858,
+          "y_observed": 0,
+          "y_predicted": 3
+        },
+        {
+          "x": 626659,
+          "y_observed": 9,
+          "y_predicted": 3
+        }
+      ]
+    }
+  },
+  {
+    "id": "11_jpmorgan_kycbot",
+    "company": "JPMorgan",
+    "product": "KYC Risk Scorer",
+    "vertical": "banking / compliance",
+    "flavor": "C",
+    "expected_outcome": "NO_RECOVERY",
+    "recovery": {
+      "status": "PARTIAL",
+      "family": "linear_residual_policy",
+      "params": {
+        "a": 7,
+        "c": 4,
+        "m": 13
+      },
+      "decision_rule": "decision(x) = (7\u00b7x + 4) mod 13",
+      "consistency": 0.875,
+      "k_used": 40,
+      "k_lower_bound": 4,
+      "margin": 10.0,
+      "elapsed_ms": 8279
+    },
+    "compliance": {
+      "claimed_family": "linear_residual",
+      "claimed_params": {
+        "a": 7,
+        "c": 4,
+        "m": 13
+      },
+      "agreement_pct": 0.875,
+      "n_agree": 35,
+      "n_violations": 5,
+      "n_total": 40,
+      "compliant_at_95": false,
+      "by_input_bucket": {
+        "low": 0.8461538461538461,
+        "mid": 0.9285714285714286,
+        "high": 0.8461538461538461
+      },
+      "first_counterexamples": [
+        {
+          "x": 952321,
+          "y_observed": 12,
+          "y_predicted": 7
+        },
+        {
+          "x": 185767,
+          "y_observed": 8,
+          "y_predicted": 9
+        },
+        {
+          "x": 643420,
+          "y_observed": 12,
+          "y_predicted": 3
+        },
+        {
+          "x": 30254,
+          "y_observed": 1,
+          "y_predicted": 12
+        },
+        {
+          "x": 984227,
+          "y_observed": 3,
+          "y_predicted": 9
+        }
+      ]
+    }
+  },
+  {
+    "id": "12_salesforce_leadscorer",
+    "company": "Salesforce",
+    "product": "Einstein LeadScore Quadratic",
+    "vertical": "sales / CRM",
+    "flavor": "C",
+    "expected_outcome": "NO_RECOVERY",
+    "recovery": {
+      "status": "NO_RECOVERY",
+      "elapsed_ms": 12022
+    },
+    "compliance": {
+      "claimed_family": "polynomial_threshold",
+      "claimed_params": {
+        "coeffs": [
+          2,
+          9,
+          5
+        ],
+        "m": 17
+      },
+      "agreement_pct": 0.875,
+      "n_agree": 35,
+      "n_violations": 5,
+      "n_total": 40,
+      "compliant_at_95": false,
+      "by_input_bucket": {
+        "low": 0.7857142857142857,
+        "mid": 0.9333333333333333,
+        "high": 0.9090909090909091
+      },
+      "first_counterexamples": [
+        {
+          "x": 9172,
+          "y_observed": 1,
+          "y_predicted": 12
+        },
+        {
+          "x": 47931,
+          "y_observed": 8,
+          "y_predicted": 3
+        },
+        {
+          "x": 22055,
+          "y_observed": 14,
+          "y_predicted": 15
+        },
+        {
+          "x": 7149,
+          "y_observed": 9,
+          "y_predicted": 12
+        },
+        {
+          "x": 12792,
+          "y_observed": 1,
+          "y_predicted": 3
+        }
+      ]
+    }
+  },
+  {
+    "id": "13_hertz_classifier_v1",
+    "company": "Hertz",
+    "product": "ClaimsClassifier (Q1 2026 baseline)",
+    "vertical": "insurance / auto",
+    "flavor": "D",
+    "expected_outcome": "RECOVERED",
+    "recovery": {
+      "status": "RECOVERED",
+      "family": "linear_residual_policy",
+      "params": {
+        "a": 13,
+        "c": 7,
+        "m": 17
+      },
+      "decision_rule": "decision(x) = (13\u00b7x + 7) mod 17",
+      "consistency": 1.0,
+      "k_used": 40,
+      "k_lower_bound": 4,
+      "margin": 10.0,
+      "elapsed_ms": 10
+    }
+  },
+  {
+    "id": "14_hertz_classifier_v2",
+    "company": "Hertz",
+    "product": "ClaimsClassifier (Q2 2026, post silent update)",
+    "vertical": "insurance / auto",
+    "flavor": "D",
+    "expected_outcome": "RECOVERED",
+    "recovery": {
+      "status": "RECOVERED",
+      "family": "linear_residual_policy",
+      "params": {
+        "a": 19,
+        "c": 11,
+        "m": 23
+      },
+      "decision_rule": "decision(x) = (19\u00b7x + 11) mod 23",
+      "consistency": 1.0,
+      "k_used": 40,
+      "k_lower_bound": 4,
+      "margin": 10.0,
+      "elapsed_ms": 92
+    }
+  },
+  {
+    "id": "15_meta_contentmod",
+    "company": "Meta",
+    "product": "ContentModerator-X",
+    "vertical": "social / content moderation",
+    "flavor": "E",
+    "expected_outcome": "NO_RECOVERY",
+    "recovery": {
+      "status": "NO_RECOVERY",
+      "elapsed_ms": 12507
+    },
+    "compliance": {
+      "claimed_family": "linear_residual",
+      "claimed_params": {
+        "a": 3,
+        "c": 5,
+        "m": 11
+      },
+      "agreement_pct": 0.7,
+      "n_agree": 28,
+      "n_violations": 12,
+      "n_total": 40,
+      "compliant_at_95": false,
+      "by_input_bucket": {
+        "low": 0.6666666666666666,
+        "mid": 0.6666666666666666,
+        "high": 0.75
+      },
+      "first_counterexamples": [
+        {
+          "x": 341,
+          "y_observed": 0,
+          "y_predicted": 5
+        },
+        {
+          "x": 451,
+          "y_observed": 0,
+          "y_predicted": 5
+        },
+        {
+          "x": 681,
+          "y_observed": 0,
+          "y_predicted": 2
+        },
+        {
+          "x": 638,
+          "y_observed": 0,
+          "y_predicted": 5
+        },
+        {
+          "x": 989,
+          "y_observed": 0,
+          "y_predicted": 2
+        }
+      ]
+    }
+  },
+  {
+    "id": "DIFF_hertz_v1_v2",
+    "kind": "drift_detection",
+    "v1_rule": "decision(x) = (13\u00b7x + 7) mod 17",
+    "v2_rule": "decision(x) = (19\u00b7x + 11) mod 23",
+    "family_changed": false,
+    "divergence_rate": 0.9625,
+    "fingerprint": "fe6fce0ec77d3a73"
+  }
+]
