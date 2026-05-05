@@ -17,6 +17,7 @@ dist/
 build/
 *.whl
 *.tar.gz
+*.mcpb
 
 # coverage
 htmlcov/

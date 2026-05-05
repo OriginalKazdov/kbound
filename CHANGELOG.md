@@ -5,6 +5,16 @@ All notable changes to `kbound` are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+- **MCPB / DXT bundle** for Claude Desktop ≥ 1.5300 under [`mcpb/`](mcpb/). `manifest.json` declares `manifest_version: "0.4"` + `server.type: "uv"`, so the bundle is ~3KB and Claude Desktop's built-in `uv` resolves `kbound[mcp]>=0.2.0` from PyPI at install time. Built artifact attached to GitHub Releases as `kbound-0.2.0.mcpb`. Drop it on Claude Desktop to install — no `pip install` step on the user's side.
+
+### Changed
+
+- README: Claude Desktop install path rewritten to MCPB-first; legacy `mcpServers` config kept as a sub-section for older Claude Desktop builds.
+
 ## [0.2.0] — MCP server
 
 ### Added

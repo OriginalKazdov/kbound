@@ -128,9 +128,15 @@ The compliance check is the primitive that converts "no rule recovered" into a p
 pip install kbound[mcp]
 ```
 
-### Claude Desktop
+### Claude Desktop (MCPB / DXT extension)
 
-Add to `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS) or `%APPDATA%\Claude\claude_desktop_config.json` (Windows):
+Claude Desktop ≥ 1.5300 uses the MCPB / DXT plugin format instead of raw `mcpServers` config. Download the latest `.mcpb` bundle from the [GitHub Releases](https://github.com/OriginalKazdov/kbound/releases) page and drag it onto Claude Desktop, or open **Settings → Extensions → Install from file…** and pick `kbound-<version>.mcpb`.
+
+The bundle is tiny (~3KB); Claude Desktop's bundled `uv` resolves the actual `kbound[mcp]>=0.2.0` dependency from PyPI at install time, so you don't need `pip install` separately. After install, the five tools (`recover_rule_from_observations`, `predict_under_recovered_rule`, `list_supported_rule_families`, `verify_compliance_against_claimed_rule`, `classify_observation_geometry`) appear in Claude Desktop's tools palette.
+
+The bundle source lives under [`mcpb/`](mcpb/) — `manifest.json`, `pyproject.toml`, and a one-line entry shim around `kbound.mcp.main`.
+
+#### Older Claude Desktop (< 1.5300, classic mcpServers config)
 
 ```json
 {
@@ -142,7 +148,7 @@ Add to `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS)
 }
 ```
 
-Restart Claude Desktop. Five tools become available: `recover_rule_from_observations`, `predict_under_recovered_rule`, `list_supported_rule_families`, `verify_compliance_against_claimed_rule`, `classify_observation_geometry`.
+(After `pip install kbound[mcp]` so `kbound-mcp` is on `$PATH`.)
 
 ### Cursor / Cline
 

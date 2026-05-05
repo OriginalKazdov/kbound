@@ -1,0 +1,8 @@
+[project]
+name = "kbound-mcpb"
+version = "0.2.0"
+description = "MCPB (Claude Desktop Extension) bundle for kbound — installs the kbound MCP server inside Claude Desktop's managed uv environment."
+requires-python = ">=3.10"
+dependencies = [
+    "kbound[mcp]>=0.2.0",
+]

@@ -1,0 +1,70 @@
+{
+  "manifest_version": "0.4",
+  "name": "kbound",
+  "display_name": "kbound — Inductive Rule Recovery",
+  "version": "0.2.0",
+  "description": "Recover the deterministic rule a system follows from K input/output observations, plus a sample-complexity certificate. Closes the algebraic-induction gap LLMs fail at in-context.",
+  "long_description": "kbound exposes 5 tools: recover_rule_from_observations, predict_under_recovered_rule, list_supported_rule_families, verify_compliance_against_claimed_rule, classify_observation_geometry. Backed by 16 typed operator families (linear residual, polynomial threshold, modular exponentiation, boolean truth table, k-bit parity, linear recurrence, MT19937 / glibc / Java state recovery, and more) and a master inequality for sample complexity (Dovzak 2026).",
+  "author": {
+    "name": "Juan Cruz Dovzak",
+    "url": "https://github.com/OriginalKazdov"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OriginalKazdov/kbound.git"
+  },
+  "homepage": "https://github.com/OriginalKazdov/kbound",
+  "documentation": "https://github.com/OriginalKazdov/kbound#readme",
+  "support": "https://github.com/OriginalKazdov/kbound/issues",
+  "server": {
+    "type": "uv",
+    "entry_point": "src/server.py",
+    "mcp_config": {
+      "command": "uv",
+      "args": ["run", "--directory", "${__dirname}", "src/server.py"]
+    }
+  },
+  "tools": [
+    {
+      "name": "recover_rule_from_observations",
+      "description": "Recover the closed-form rule a deterministic system follows from K (input, output) observations. Returns rule, family, parameters, and a sample-complexity certificate."
+    },
+    {
+      "name": "predict_under_recovered_rule",
+      "description": "Recover the rule from observations and apply it to a held-out input — one-shot recover + predict."
+    },
+    {
+      "name": "list_supported_rule_families",
+      "description": "List the 16 operator families kbound can recover, each with its typical K_lower_bound and validation status."
+    },
+    {
+      "name": "verify_compliance_against_claimed_rule",
+      "description": "Check how often observations match a claimed rule. Returns agreement_pct, counterexamples, and per-input-bucket breakdown — useful for vendor-claim verification."
+    },
+    {
+      "name": "classify_observation_geometry",
+      "description": "Cheap pre-check classifying observations as spatial / algebraic / borderline. Use before full recovery to know whether kbound is the right tool."
+    }
+  ],
+  "tools_generated": false,
+  "compatibility": {
+    "claude_desktop": ">=1.5000.0",
+    "platforms": ["darwin", "linux", "win32"],
+    "runtimes": {
+      "python": ">=3.10"
+    }
+  },
+  "keywords": [
+    "induction",
+    "rule-recovery",
+    "program-synthesis",
+    "symbolic",
+    "neuro-symbolic",
+    "in-context-learning",
+    "k-shot",
+    "ai-agent",
+    "audit",
+    "cryptanalysis"
+  ],
+  "license": "MIT"
+}
