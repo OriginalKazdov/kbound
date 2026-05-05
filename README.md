@@ -185,14 +185,14 @@ npx @modelcontextprotocol/inspector kbound-mcp
 
 ## Foundations
 
-kbound is grounded in four papers (Dovzak):
+kbound is grounded in four working papers (Dovzak), all available as PDFs in [`papers/`](papers/):
 
-1. **The Compositional Depth Decay is a Dispatch Tax** — exponential-decay law fingerprinting architectures' compositional generalization.
-2. **The Geometric Boundary of Few-Shot Rule Induction in Frontier LLMs** — measures where commercial LLMs cross from 0.88 accuracy to chance, depending on rule geometry.
-3. **Geometry of Few-Shot Rule Induction** — the spatial-separable vs. algebraically-coupled distinction; defines the Relational Consistency Executor (RCE) that kbound implements for the algebraic side.
-4. **A Universal Sample-Complexity Framework for Black-Box Rule Recovery** — the master inequality `K ≥ (dim − log|Sym(r)|)/b` that yields the K-bound certificate every recovery cites.
+1. [**The Compositional Depth Decay is a Dispatch Tax**](papers/01_compositional_depth_law.pdf) — exponential-decay law fingerprinting architectures' compositional generalization.
+2. [**The Geometric Boundary of Few-Shot Rule Induction in Frontier LLMs**](papers/02_llm_geometric_boundary.pdf) — measures where commercial LLMs cross from 0.88 accuracy to chance, depending on rule geometry.
+3. [**Geometry of Few-Shot Rule Induction**](papers/03_geometry_of_induction.pdf) — the spatial-separable vs. algebraically-coupled distinction; defines the Relational Consistency Executor (RCE) that kbound implements for the algebraic side.
+4. [**A Universal Sample-Complexity Framework for Black-Box Rule Recovery**](papers/04_kbound_framework.pdf) — the master inequality `K ≥ (dim − log|Sym(r)|)/b` that yields the K-bound certificate every recovery cites.
 
-You do not need to read them to use kbound. They are the answer to "is this principled?" rather than "how do I use it?"
+See [`papers/README.md`](papers/README.md) for abstracts and BibTeX. You do not need to read them to use kbound. They are the answer to "is this principled?" rather than "how do I use it?"
 
 ---
 
