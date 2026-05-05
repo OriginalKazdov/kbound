@@ -23,10 +23,12 @@ class OperatorMeta:
     validation_status: str = "validated"
 
 
-# Single source of truth. CHANGE HERE if we ever rename anything.
-# Server enforces K>=4 in `_run_pipeline`; entries below reflect that floor regardless
-# of theoretical lower bound. validation_status set per /tmp/kz_field_*.py results
-# 2026-05-02 (real PRNG battery + limit finder + LLM black-box).
+# Single source of truth. Rename anything here if vocabulary changes.
+# `_run_pipeline` enforces K>=4 across the engine; entries below reflect that
+# floor regardless of theoretical lower bound. `validation_status` is set from
+# the in-tree real-world batteries (see `test_battery/`): "validated" means
+# end-to-end recovery on real traces; "experimental" means the recovery math
+# works but customer-fit on production data has not been measured yet.
 OPERATORS: dict[str, OperatorMeta] = {
     "linear_residual_policy": OperatorMeta(
         internal_id="lcg",

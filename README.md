@@ -52,7 +52,7 @@ If nothing in the catalog matches, it returns `RecoveryResult(no_recovery, …)`
 
 ## Use cases
 
-- **Build deterministic copilots for AI agents**: drop kbound in as an MCP server; agents now answer K-shot induction questions correctly instead of hallucinating. (See `kbound/mcp.py`, status: in progress.)
+- **Build deterministic copilots for AI agents**: drop kbound in as an MCP server; agents now answer K-shot induction questions correctly instead of hallucinating. (MCP adapter — in progress, not yet shipped.)
 - **Audit deployed AI agents**: recover the rule the agent is actually following from a trace log; compare against the vendor-declared specification (`kbound.check_compliance`); emit auditor-ready Markdown + CSV + remediation SLA.
 - **Cryptanalysis & security research**: recover LCG / glibc / Java / MT19937 / TGFSR-additive-feedback / 2-LCG-XOR-composition state from observed outputs, with a sample-complexity bound on the recovery.
 - **Behavioral diff between system versions**: `kbound.diff_traces(v1, v2)` surfaces silent rule changes between deployments.
@@ -135,7 +135,7 @@ You do not need to read them to use kbound. They are the answer to "is this prin
 
 ## Status
 
-`v0.1.0`. The 16 operators are stable and tested. The MCP server adapter and full documentation site are in progress. Public API surface (`recover_rule`, `check_compliance`, `classify_geometry`, the renderers) is stable.
+`v0.1.0` — alpha. The catalog ships **16 operator families**, of which **13 are validated** end-to-end against real-world trace batteries; **3 are experimental** (`scaling_residual_rule`, `inverse_residual_rule`, `k_bit_parity_rule` — recovery works but customer-fit on real data has not been measured). Each operator's status is exposed at `kbound.OPERATORS[<key>].validation_status`. The MCP server adapter and the full documentation site are in progress. Public API surface (`recover_rule`, `check_compliance`, `classify_geometry`, `diff_traces`, the renderers) is stable for v0.x.
 
 Roadmap (short):
 - `kbound/mcp.py` — MCP server packaging, registered in the public catalog.

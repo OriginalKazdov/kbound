@@ -16,7 +16,6 @@ pip install -e ".[dev]"
 Optional extras:
 - `pip install -e ".[server]"` — fastapi + uvicorn for the `kbound.api.main:app` service
 - `pip install -e ".[llm]"` — `anthropic` for the spatial → LLM fallback path
-- `pip install -e ".[mcp]"` — MCP server adapter (in progress)
 
 ## Verify before pushing
 
